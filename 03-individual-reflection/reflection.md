@@ -1,86 +1,46 @@
 # 03 — Individual Reflection
 
-> Viết bằng lời của bạn (Phase 7 trong `01-worksheet.md`). Có thể dùng AI gợi ý câu hỏi tự soi, không dùng AI viết thay. 8-12 câu, có chuyện cụ thể.
-
 ## Thông tin cá nhân
 
-- Họ và tên:
-- Mã học viên:
-- Nhóm:
-- Candidate problem nhóm chọn:
+- **Họ và tên:** Đàm Việt Hưng
+- **Mã học viên:** 2A202602600
+- **Nhóm:** RoadGuardian
+- **Candidate nhóm chọn:** Phát hiện sớm tai nạn từ camera không được giám sát liên tục.
 
----
+## 1. Tôi đã tham gia phần nào?
 
-## 1. Tôi đã tham gia vào phần nào?
-
-Ghi việc cụ thể + kết quả cụ thể. Không ghi chung chung kiểu "tham gia thảo luận".
-
-| Hoạt động | Tôi đã làm gì? (việc cụ thể) | Kết quả / ảnh hưởng tới nhóm |
+| Hoạt động | Tôi đã làm gì? | Kết quả / ảnh hưởng |
 |---|---|---|
-| Scan cá nhân | | |
-| Pitch Problem Card | | |
-| Challenge bài của bạn khác | | |
-| Gom trùng / cluster | | |
-| Chọn candidate problem | | |
-| Validation / research | | |
-| Workflow nhóm | | |
-| Problem Statement | | |
-| Rule / Workflow / Agent | | |
-| Decision | | |
+| Scan cá nhân | Scan 10 problems theo 4 lăng kính và chọn top 3. | Có danh sách rộng, không bắt đầu bằng một solution AI duy nhất. |
+| Pitch Problem Card | Trình bày Card #1 về khoảng trống camera ghi hình nhưng chưa có cảnh báo. | Làm rõ actor, workflow và bottleneck cần validate. |
+| Challenge | Đặt câu hỏi về detection latency và false-alert fatigue. | Giữ nhóm không biến giả thuyết thành fact. |
+| Cluster / candidate | Gom các hướng phát hiện, mapping và hậu kiểm thành 3 cluster. | Chọn candidate phát hiện sớm để đào sâu. |
+| Workflow | Viết current/future workflow và human boundary. | Chốt AI chỉ tạo suspected incident, người thật confirm/reject. |
+| Decision | So sánh Rule, Workflow và Agent. | Chọn Workflow cho pilot, quyết định hiện tại là Not Yet. |
 
-**Dấu tay rõ nhất của tôi trong artifact cuối (1-2 câu):**
+**Dấu tay rõ nhất:** Tôi tập trung thu hẹp RoadGuardian từ “AI phát hiện tai nạn” thành workflow có điểm review của con người, đồng thời ghi rõ baseline và quyền camera còn thiếu.
 
-```text
-
-```
-
----
-
-## 2. Bảng dùng AI (mỗi dòng 1 phase có dùng AI — 2 cột cuối bắt buộc)
+## 2. Bảng dùng AI
 
 | Phase | Tôi dùng AI để làm gì? | AI hữu ích ở đâu? | AI sai / hời hợt ở đâu? | Tôi sửa gì bằng nhận định của mình? |
 |---|---|---|---|---|
-| Scan | | | | |
-| Problem Card | | | | |
-| Workflow | | | | |
-| Research | | | | |
-| Problem Statement | | | | |
-| Rule / Workflow / Agent | | | | |
-| Decision | | | | |
+| Scan | Gợi ý thêm problem theo 4 lăng kính. | Mở rộng danh sách candidate. | Dễ gợi ý solution quá rộng hoặc không có pain thật. | Giữ problem có actor, workflow và dấu hiệu cần đo. |
+| Problem Card | Phản biện bottleneck và rủi ro. | Gợi ý câu hỏi challenge. | Không thể cung cấp baseline camera tại Việt Nam. | Đánh dấu các số liệu là cần validate. |
+| Workflow | Gợi ý flow trước/sau. | Làm rõ handoff, fallback và human boundary. | Có xu hướng tự động hóa nhiều bước. | Giữ người thật trước mọi action chính thức. |
+| Research | Gợi ý hướng tìm tool và pattern. | So sánh Rule/Workflow/Agent. | Không dùng số liệu chưa kiểm link. | Chỉ giữ nguồn kiểm được và ghi rõ khoảng trống. |
+| Problem Statement | Đề xuất cách viết chặt hơn. | Kiểm tra actor, metric và boundary. | Có thể viết chắc chắn dù evidence thiếu. | Chọn Not Yet thay vì khẳng định Go. |
+| Rule / Workflow / Agent | Hỏi phản biện các mức tự động hóa. | Làm rõ vì sao Agent là quá mức. | Không tự quyết định rủi ro vận hành. | Chọn Workflow, Rule làm baseline. |
+| Decision | Kiểm tra điều kiện Go/Not Yet/No-Go. | Làm lộ dependency còn thiếu. | Không thay interview, log hoặc dataset. | Yêu cầu validation trước pilot thật. |
 
-> Nếu phase nào không dùng AI, ghi `Không dùng` và vì sao tự làm.
+## 3. Reflection
 
----
+Tôi học được rằng một ý tưởng AI nghe hấp dẫn chưa chắc là một problem đủ rõ để triển khai. Khi tách workflow RoadGuardian thành các bước, tôi thấy bottleneck có thể nằm ở việc phát hiện sự kiện chứ không phải ở việc tự điều động lực lượng. Tôi cũng nhận ra các con số như detection latency dưới 10 giây hay recall 90% mới chỉ là target cho prototype, chưa phải bằng chứng hệ thống thực tế. Phần khó nhất là phân biệt context về mức độ nghiêm trọng của tai nạn với bằng chứng trực tiếp rằng camera không được giám sát là nguyên nhân gây chậm. AI giúp tôi mở rộng góc nhìn và phản biện rủi ro, nhưng không thể thay interview, log, dataset hoặc quyền truy cập camera. Tôi đã sửa hướng solution bằng cách giữ suspected incident và human review ở giữa workflow. Tôi không chọn Agent vì các bước hiện tại vẫn có thể đi theo một flow xác định và cần kiểm soát chặt. Dấu tay của tôi trong artifact là problem scan 10 ý, top 3 cards, workflow và boundary không tự ra quyết định pháp lý. Nếu làm lại, tôi sẽ validation sớm hơn với nhân viên vận hành camera và đo một workflow thật trước khi đặt target. Quyết định hợp lý hiện tại là Not Yet, vì problem đáng kiểm chứng nhưng dữ liệu và điều kiện triển khai chưa đủ.
 
-## 3. Reflection câu hỏi mở
+## 4. Tự kiểm cuối bài
 
-Chọn 3-4 câu trong 6 câu dưới để viết thành đoạn 8-12 câu (không trả lời bullet 1 dòng):
-- Tôi học được gì khi nghe top 3 problems của các bạn khác?
-- Nhóm có lúc nào bị solution-first, đòi làm Agent cho ngầu không?
-- Tôi có thay đổi ý kiến sau khi bị challenge không, vì sao đổi?
-- Tôi đóng góp gì thật sự vào artifact cuối, phần nào có dấu tay của tôi?
-- Điều khó nhất khi viết Problem Statement là gì, metric hay boundary?
-- Nếu làm lại, tôi sẽ challenge nhóm mạnh hơn ở điểm nào?
-
-**Reflection:**
-
-```text
-
-
-
-```
-
----
-
-## 4. Tự kiểm cuối bài (check trước khi nộp repo)
-
-- [ ] [12đ] Cá nhân có 5+ problems + top 3 Problem Cards
-- [ ] [12đ] Tôi đã pitch rõ + challenge nhóm đúng trọng tâm (ghi ở bảng mục 1)
-- [ ] Nhóm có nhật ký hội tụ từ candidates về 1 bài
-- [ ] [15đ] Nhóm có workflow trước/sau
-- [ ] [20đ] Nhóm có PS v0/v1 với metric + boundary rõ
-- [ ] [15đ] Nhóm có so sánh No AI / Rule / Workflow / Agent
-- [ ] [10đ] Nhóm có Go / Not Yet / No-Go + lý do rõ
-- [ ] [10đ] Reflection này có vai trò thật + AI giúp/sai ở đâu + điều học được + nếu làm lại đổi gì
-- [ ] [6đ] Tôi tự giải thích được mạch problem → workflow → metric → boundary → độ phù hợp AI
-
+- [x] Có 10 problems và top 3 Problem Cards.
+- [x] Có pitch, challenge và vai trò cá nhân.
+- [x] Có workflow trước/sau, metric, boundary và fallback.
+- [x] Có so sánh Rule/Workflow/Agent.
+- [x] Reflection có AI hữu ích, điểm hời hợt và phần tự sửa.
+- [x] Tự giải thích được problem → workflow → metric → boundary → AI fit.
