@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>RoadGuardian — Individual Problem Scan</title>
+<style>
+:root{--bg:#071018;--panel:#0c1823;--soft:#112333;--text:#eaf4fb;--muted:#95a9b8;--accent:#38d9a9;--accent2:#5aa9ff;--warn:#ffcc66;--danger:#ff7b7b;--line:#203747}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial;background:radial-gradient(circle at 85% 0%,#12314b 0,#071018 35%),var(--bg);color:var(--text);line-height:1.55}
+a{color:inherit}.wrap{max-width:1080px;margin:auto;padding:0 24px}.hero{padding:76px 0 40px}.tag{display:inline-flex;gap:8px;align-items:center;padding:7px 12px;border:1px solid #27516a;border-radius:999px;background:#0c1d28;color:#b9d7e8;font-size:13px}.dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 18px var(--accent)}h1{font-size:clamp(40px,7vw,78px);line-height:.98;margin:18px 0 20px;letter-spacing:-.05em}h1 span{color:var(--accent)}.lead{max-width:780px;color:#c7d6df;font-size:20px}.hero-grid{display:grid;grid-template-columns:1.35fr .65fr;gap:22px;margin-top:34px}.card{background:linear-gradient(180deg,rgba(17,35,51,.88),rgba(9,21,31,.92));border:1px solid var(--line);border-radius:22px;padding:24px;box-shadow:0 20px 60px rgba(0,0,0,.2)}.problem{font-size:25px;font-weight:700;line-height:1.25}.mini{color:var(--muted);font-size:14px}.stat-big{font-size:44px;font-weight:800;letter-spacing:-.04em;color:var(--warn)}section{padding:56px 0}.eyebrow{color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.12em;font-size:12px}h2{font-size:36px;line-height:1.1;margin:10px 0 24px;letter-spacing:-.03em}.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}.step{position:relative;background:#0c1924;border:1px solid var(--line);border-radius:18px;padding:18px;min-height:132px}.step b{display:block;font-size:13px;color:var(--accent2);margin-bottom:8px}.step.hot{border-color:#72573a;background:linear-gradient(180deg,#211d18,#111a22)}.step.hot b{color:var(--warn)}.arrow{display:none}.vs{display:grid;grid-template-columns:1fr 70px 1fr;gap:18px;align-items:center}.vs-center{text-align:center;font-weight:800;color:var(--muted)}.label{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px}.label.current{color:var(--danger)}.label.future{color:var(--accent)}.pipe{display:flex;flex-direction:column;gap:10px}.pipe span{padding:11px 13px;border-radius:12px;background:#091620;border:1px solid #1b3445}.pipe span.ai{border-color:#2b7a68;background:#0b211e;color:#cffff1}.boundary{display:grid;grid-template-columns:1fr 1fr;gap:18px}.yes,.no{border-radius:20px;padding:22px;border:1px solid var(--line)}.yes{background:#0b211e}.no{background:#211719}.yes h3{color:var(--accent)}.no h3{color:#ff9b9b}ul{padding-left:20px;margin-bottom:0}.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.metric{padding:20px;border-radius:18px;background:#0b1721;border:1px solid var(--line)}.metric .num{font-size:29px;font-weight:800;color:var(--accent2)}.metric p{color:var(--muted);font-size:14px}.evidence{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.evidence .card{padding:21px}.evidence strong{font-size:30px;color:var(--warn);display:block}.src{display:inline-block;margin-top:13px;color:#87c8ff;text-decoration:none;font-size:13px;border-bottom:1px dashed #44708d}.note{margin-top:18px;padding:16px 18px;border-left:3px solid var(--warn);background:#171a18;color:#d8d0bd;border-radius:0 12px 12px 0}.decision{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.decision .card{min-height:180px}.go h3{color:var(--accent)}.notyet h3{color:var(--warn)}.nogo h3{color:#ff8d8d}.footer{padding:50px 0 70px;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}.chip{padding:7px 10px;border-radius:999px;background:#0d1c27;border:1px solid #244256;color:#abc3d2;font-size:12px}
+@media(max-width:820px){.hero-grid,.vs,.boundary{grid-template-columns:1fr}.vs-center{display:none}.flow{grid-template-columns:1fr 1fr}.metrics,.evidence,.decision{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.wrap{padding:0 16px}.hero{padding-top:46px}.flow,.metrics,.evidence,.decision{grid-template-columns:1fr}h2{font-size:30px}.lead{font-size:17px}.card{padding:20px}}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+  <div class="tag"><span class="dot"></span> Individual Problem Scan · AI-assisted workflow</div>
+  <h1>Road<span>Guardian</span></h1>
+  <p class="lead">Phát hiện sớm tai nạn giao thông từ camera đường phố và chuyển <b>suspected incident</b> đến đúng người để xác minh — thay vì đòi hỏi con người theo dõi mọi camera 24/7.</p>
+  <div class="hero-grid">
+    <div class="card"><div class="mini">Câu hỏi trung tâm</div><div class="problem">Làm thế nào để một sự cố xuất hiện trong camera được phát hiện và đưa đến đúng người xử lý nhanh hơn, đặc biệt với camera không có người giám sát liên tục?</div></div>
+    <div class="card"><div class="mini">Candidate bottleneck</div><div class="stat-big">2 → 3</div><div>Camera đã ghi sự kiện → nhưng chưa biến thành cảnh báo.</div></div>
+  </div>
+</div></header>
+
+<section><div class="wrap">
+  <div class="eyebrow">01 · Problem flow</div><h2>Vấn đề nằm ở đâu?</h2>
+  <div class="flow">
+    <div class="step"><b>1</b>Tai nạn xảy ra</div>
+    <div class="step"><b>2</b>Camera ghi hình</div>
+    <div class="step hot"><b>3 · BOTTLENECK</b>Chờ con người phát hiện</div>
+    <div class="step"><b>4</b>Tiếp nhận & xác minh</div>
+    <div class="step"><b>5</b>Chuyển tới đơn vị xử lý</div>
+  </div>
+  <div class="note"><b>Điểm cần validate:</b> file gốc chưa có baseline thực tế về số camera/người trực hay detection latency tại một trung tâm ở Việt Nam. Vì vậy đây là <b>candidate bottleneck</b>, chưa phải kết luận.</div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="eyebrow">02 · Current vs Future</div><h2>RoadGuardian thay đổi workflow như thế nào?</h2>
+  <div class="vs">
+    <div class="card"><div class="label current">Current state</div><div class="pipe"><span>Camera stream</span><span>Con người quan sát nhiều luồng</span><span>Phát hiện sự cố</span><span>Xác minh</span><span>Chuyển thông tin</span></div></div>
+    <div class="vs-center">→</div>
+    <div class="card"><div class="label future">Future state</div><div class="pipe"><span>Camera được cấp quyền</span><span class="ai">AI phân tích video liên tục</span><span class="ai">Tạo “Suspected Accident”</span><span>👤 Human verify</span><span>Chuyển thông tin chính thức</span></div></div>
+  </div>
+  <div class="chips"><span class="chip">Traffic camera</span><span class="chip">Urban CCTV</span><span class="chip">Building camera</span><span class="chip">Voluntary home/shop camera</span></div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="eyebrow">03 · Human boundary</div><h2>AI hỗ trợ, không tự ra quyết định pháp lý</h2>
+  <div class="boundary">
+    <div class="yes"><h3>RoadGuardian được phép</h3><ul><li>Phân tích video và phát hiện event nghi ngờ</li><li>Tạo alert + confidence score</li><li>Gắn camera ID, location, timestamp</li><li>Trích snapshot / clip trước-sau sự kiện</li><li>Ưu tiên incident để người trực review</li></ul></div>
+    <div class="no"><h3>RoadGuardian không được phép</h3><ul><li>Tự kết luận ai đúng / ai sai</li><li>Tự nhận dạng danh tính nếu không cần thiết</li><li>Tự phạt phương tiện</li><li>Tự điều động lực lượng chỉ dựa trên prediction</li><li>Lấy camera tư nhân khi chưa có đồng ý</li></ul></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="eyebrow">04 · Prototype metrics</div><h2>Đo bằng gì?</h2>
+  <div class="metrics">
+    <div class="metric"><div class="num">&lt;10s</div><b>Detection latency</b><p>Target kỹ thuật cho prototype, không phải baseline hệ thống thật.</p></div>
+    <div class="metric"><div class="num">≥90%</div><b>Accident recall</b><p>Ưu tiên giảm bỏ sót sự cố trong dataset thử nghiệm.</p></div>
+    <div class="metric"><div class="num">↓</div><b>False-alert rate</b><p>Phải đủ thấp để không gây alert fatigue cho người vận hành.</p></div>
+    <div class="metric"><div class="num">↓</div><b>Human verify time</b><p>Incident Card phải giúp confirm/reject nhanh.</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="eyebrow">05 · Evidence & Sources</div><h2>Số liệu thực tế để chứng minh mức độ nghiêm trọng</h2>
+  <div class="evidence">
+    <div class="card"><span class="mini">WHO · Việt Nam, 2021</span><strong>17.229</strong><div>ca tử vong do tai nạn giao thông đường bộ theo ước tính của WHO; tỷ lệ 17,7/100.000 dân.</div><a class="src" href="https://www.who.int/publications/m/item/road-safety-vnm-2023-country-profile" target="_blank" rel="noopener">Nguồn: WHO Vietnam Road Safety Profile ↗</a></div>
+    <div class="card"><span class="mini">Việt Nam · 6 tháng đầu 2025</span><strong>9.398 vụ</strong><div>5.293 người chết và 6.246 người bị thương do tai nạn giao thông.</div><a class="src" href="https://baochinhphu.vn/tim-moi-cach-keo-giam-ngay-so-nguoi-thiet-mang-do-tai-nan-giao-thong-10225081319302354.htm" target="_blank" rel="noopener">Nguồn: Báo Chính phủ ↗</a></div>
+    <div class="card"><span class="mini">WHO · Global, 2026</span><strong>1,16 triệu</strong><div>người tử vong mỗi năm do va chạm giao thông; 20–50 triệu người khác bị thương không tử vong.</div><a class="src" href="https://www.who.int/news-room/fact-sheets/detail/road-traffic-injuries/" target="_blank" rel="noopener">Nguồn: WHO Road Traffic Injuries ↗</a></div>
+  </div>
+  <div class="note"><b>Quan trọng:</b> các số liệu trên chứng minh <b>quy mô và mức độ nghiêm trọng của bài toán an toàn giao thông</b>. Chúng <u>không trực tiếp chứng minh</u> rằng thiếu giám sát camera 24/7 là nguyên nhân của các ca tử vong. Giả thuyết về bottleneck camera cần interview/workflow data riêng.</div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="eyebrow">06 · Decision gate</div><h2>Khi nào GO / NOT YET / NO-GO?</h2>
+  <div class="decision">
+    <div class="card go"><h3>GO — scope nhỏ</h3><p>Khi problem được xác nhận, prototype giảm detection latency, recall đủ cao, false alert chấp nhận được và human review vẫn kiểm soát quyết định.</p></div>
+    <div class="card notyet"><h3>NOT YET</h3><p>Khi problem có thật nhưng chưa có dataset, quyền camera, privacy agreement hoặc workflow integration cần thiết.</p></div>
+    <div class="card nogo"><h3>NO-GO / đổi problem</h3><p>Khi phỏng vấn cho thấy detection không phải bottleneck, hoặc Rule/Workflow đơn giản đã giải quyết đủ tốt với chi phí thấp hơn AI.</p></div>
+  </div>
+</div></section>
+
+<footer class="footer"><div class="wrap"><b>RoadGuardian</b> · Candidate: AI-assisted Workflow, không phải autonomous Agent.<br/>Trang tóm tắt được xây dựng từ Individual Problem Scan; các giả thuyết chưa được validate được giữ nguyên trạng thái để tránh biến assumption thành fact.</div></footer>
+</body></html>
