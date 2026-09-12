@@ -4,7 +4,7 @@
 
 - **Họ và tên:** Đàm Việt Hưng
 - **Mã học viên:** 2A202602600
-- **Nhóm:** RoadGuardian
+- **Nhóm:** zone C nhóm buổi chiều
 - **Candidate nhóm chọn:** Phát hiện sớm tai nạn từ camera không được giám sát liên tục.
 
 ## 1. Tôi đã tham gia phần nào?
